@@ -15,7 +15,7 @@
 #' - **positivity_rate**: weekly test positivity (%): 100 x Number of new confirmed cases/number of tests done per week
 #' - **testing_data_source**: data source of testing
 #' 
-#' @import tibble
+#' 
 #' 
 #' @source [European Centre for Disease Prevention and Control](https://www.ecdc.europa.eu/en/publications-data/covid-19-testing)
 #' 

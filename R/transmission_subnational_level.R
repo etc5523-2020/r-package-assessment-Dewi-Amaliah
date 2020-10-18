@@ -17,7 +17,7 @@
 #' 
 #' - **Week**: week from week 1 of 2020 to week 39 of 2020
 #' 
-#' @import tibble
+#' 
 #' 
 #' @source [European Centre of Disease Control and Prevention](https://qap.ecdc.europa.eu/public/extensions/covid-19/covid-19-mobile.html#subnational-transmission-tab)
 
