@@ -1,4 +1,4 @@
-Package: C19EUxplorer
+Package: c19euxplorer
 Title: An Interactive Data Explorer App of COVID-19 in Europe
 Version: 0.0.0.9000
 Authors@R: 
@@ -7,13 +7,11 @@ Authors@R:
            role = c("aut", "cre"),
            email = "dama0007@student.monash.edu",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: This package features a Shiny app to explore the data of COVID-19 
-related variables in several countries in Europe. 
-The variables covered are daily and cumulative cases and deaths, 
-weekly testing and positivity rate, weekly dominant source of transmission, 
-and daily community mobility during the pandemic. 
+Description: This package features a Shiny app to explore the data of COVID-19 related variables in several countries in Europe. The variables covered are daily and cumulative cases and deaths, weekly testing and positivity rate, weekly dominant source of transmission, and daily community mobility during the pandemic. 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Depends: 
+    R (>= 2.10)
