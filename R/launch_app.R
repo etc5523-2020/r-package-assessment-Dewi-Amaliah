@@ -1,4 +1,4 @@
-#' @title Explore COVID-19 related variables interactively
+#' Explore COVID-19 related variables interactively
 #' 
 #' A shiny based web app that allows the user to explore the data of COVID-19 related variables in Europe.
 #' The users are allowed to customize their country of choices and the time range they want to display within the app. 
@@ -21,7 +21,7 @@
 #' 
 #' @export 
 
-lunch_app <- function(){
+launch_app <- function(){
   appDir <- system.file("app", package = "c19euxplorer")
   shiny::runApp(appDir, display.mode = "normal")
 }
