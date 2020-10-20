@@ -1,4 +1,4 @@
-#' Explore COVID-19 related variables interactively
+#' Explore COVID-19 Related Variables Interactively
 #' 
 #' A shiny based web app that allows the user to explore the data of COVID-19 related variables in Europe.
 #' The users are allowed to customize their country of choices and the time range they want to display within the app. 

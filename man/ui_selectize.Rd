@@ -2,7 +2,7 @@
 % Please edit documentation in R/ui_selectize.R
 \name{ui_selectize}
 \alias{ui_selectize}
-\title{Refactor User Interface selectizeInput Function}
+\title{Refactor User Interface \code{selectizeInput} Function}
 \usage{
 ui_selectize(id, choices)
 }

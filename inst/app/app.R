@@ -401,10 +401,6 @@ ui <- bootstrapPage(
                                    "Follow these steps to create the plot",
                                    "Note: For comparison across countries, the rate per 10,000 people is preferred."),
                           c19euxplorer::ui_selectize("country_select", pop2019$country),
-                          #selectizeInput("country_select", "Step1: Select or type at least 1 country", 
-                                      #choices = pop2019$country, 
-                                      #selected = c("Italy", "Austria", "Spain"),
-                                      #multiple = TRUE),
                           radioButtons("indicator_select", "Step 2: Select an indicator to display",
                                        choices = c("Cases", "Cases per 10,000 people",
                                                  "Deaths", "Deaths per 10,000 people"),
@@ -465,11 +461,6 @@ ui <- bootstrapPage(
                                          nrow(countries_test), "countries in Europe on weekly basis. 
                                          Follow these steps to create the plot.")),
                           c19euxplorer::ui_selectize("input_country_test", countries_test$country),
-                          #selectizeInput("input_country_test", 
-                                         #"Step 1: Select or type at least 1 country",
-                                         #choices = countries_test$country,
-                                         #selected = c("Italy", "Austria", "Spain"),
-                                         #multiple = TRUE),
                           sliderInput("input_date_test",
                                       "Step 2: Slide to select week range",
                                       min = min(test_data_clean$week),
@@ -1177,31 +1168,32 @@ server <- function(input, output, session) {
   #})
   
   filtered_daily <- reactive({
+    dat <- c19euxplorer::daily_indicator(covid_eu_daily, input$indicator_select)
     
-    
-    if (input$indicator_select=="Cases") {
-      dat <- covid_eu_daily %>%
-        select(country, date, daily_cases) %>%
-        rename(count = daily_cases) 
-    }
-    
-    if (input$indicator_select=="Cases per 10,000 people") {
-      dat <- covid_eu_daily %>%
-        select(country, date, daily_cases_rate) %>%
-        rename(count = daily_cases_rate) 
-    }
-    
-    if (input$indicator_select=="Deaths") {
-      dat <- covid_eu_daily %>%
-        select(country, date, daily_deaths) %>%
-        rename(count = daily_deaths) 
-    }
-    
-    if (input$indicator_select=="Deaths per 10,000 people") {
-      dat <- covid_eu_daily %>%
-        select(country, date, daily_deaths_rate) %>%
-        rename(count = daily_deaths_rate) 
-    }
+    # if (input$indicator_select=="Cases") {
+    #   
+    #   dat <- covid_eu_daily %>%
+    #     select(country, date, daily_cases) %>%
+    #     rename(count = daily_cases) 
+    # }
+    # 
+    # if (input$indicator_select=="Cases per 10,000 people") {
+    #   dat <- covid_eu_daily %>%
+    #     select(country, date, daily_cases_rate) %>%
+    #     rename(count = daily_cases_rate) 
+    # }
+    # 
+    # if (input$indicator_select=="Deaths") {
+    #   dat <- covid_eu_daily %>%
+    #     select(country, date, daily_deaths) %>%
+    #     rename(count = daily_deaths) 
+    # }
+    # 
+    # if (input$indicator_select=="Deaths per 10,000 people") {
+    #   dat <- covid_eu_daily %>%
+    #     select(country, date, daily_deaths_rate) %>%
+    #     rename(count = daily_deaths_rate) 
+    # }
     
     # there is some negative value in daily cases and deaths as methodology changed, 
     # for example in Luxembourg in 2020/08/28

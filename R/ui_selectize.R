@@ -1,4 +1,4 @@
-#' Refactor User Interface selectizeInput Function
+#' Refactor User Interface `selectizeInput` Function
 #' 
 #' This function aim to simplify the repetitive call of shiny's selectizeInput function. 
 #' It will be called in app.R file.

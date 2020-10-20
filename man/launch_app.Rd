@@ -2,7 +2,7 @@
 % Please edit documentation in R/launch_app.R
 \name{launch_app}
 \alias{launch_app}
-\title{Explore COVID-19 related variables interactively}
+\title{Explore COVID-19 Related Variables Interactively}
 \source{
 The app's source of data is the \href{https://www.ecdc.europa.eu/en}{European Centre of Disease Prevention and Control}
 and the \href{https://www.google.com/covid19/mobility/}{Google Community Mobility Report}.

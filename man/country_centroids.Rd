@@ -3,7 +3,7 @@
 \docType{data}
 \name{country_centroids}
 \alias{country_centroids}
-\title{The centroid coordinate of countries in the world}
+\title{The Centroid Coordinate of Countries in The World}
 \format{
 a tibble with 241 observations and 3 variables.
 \itemize{

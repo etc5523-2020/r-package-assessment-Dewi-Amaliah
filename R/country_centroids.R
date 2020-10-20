@@ -1,4 +1,4 @@
-#' The centroid coordinate of countries in the world
+#' The Centroid Coordinate of Countries in The World
 #' 
 #' A dataset contains centroid coordinate of countries in the world. 
 #' 
