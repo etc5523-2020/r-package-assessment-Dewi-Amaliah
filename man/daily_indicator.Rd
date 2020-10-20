@@ -16,12 +16,12 @@ A data frame containing the country, date, and the indicator.
 }
 \description{
 This function aims to simplify the code in \code{c19euxplorer} shiny app by selecting the daily data
-and indicator to visualize in Cases and Deaths Tab.
+and indicator to be visualized in Cases and Deaths Tab.
 This function would be used in the app.R file.
 }
 \examples{
 \dontrun{
-   select_variable(covid_eu_daily, input$indicator_select)
+   daily_indicator(covid_eu_daily, input$indicator_select)
 }
 
 }

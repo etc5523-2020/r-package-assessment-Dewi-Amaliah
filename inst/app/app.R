@@ -1209,30 +1209,30 @@ server <- function(input, output, session) {
   
   filtered_cumulative <- reactive({
     
-    
-    if (input$indicator_select=="Cases") {
-      dat2 <- covid_eu_cumulative %>%
-        select(country, date, cumulative_cases) %>%
-        rename(count = cumulative_cases) 
-    }
-    
-    if (input$indicator_select=="Cases per 10,000 people") {
-      dat2 <- covid_eu_cumulative %>%
-        select(country, date, cumulative_cases_rate) %>%
-        rename(count = cumulative_cases_rate) 
-    }
-    
-    if (input$indicator_select=="Deaths") {
-      dat2 <- covid_eu_cumulative %>%
-        select(country, date, cumulative_deaths) %>%
-        rename(count = cumulative_deaths) 
-    }
-    
-    if (input$indicator_select=="Deaths per 10,000 people") {
-      dat2 <- covid_eu_cumulative %>%
-        select(country, date, cumulative_deaths_rate) %>%
-        rename(count = cumulative_deaths_rate) 
-    }
+    dat2 <- c19euxplorer::cumulative_indicator(covid_eu_cumulative, input$indicator_select)
+    # if (input$indicator_select=="Cases") {
+    #   dat2 <- covid_eu_cumulative %>%
+    #     select(country, date, cumulative_cases) %>%
+    #     rename(count = cumulative_cases) 
+    # }
+    # 
+    # if (input$indicator_select=="Cases per 10,000 people") {
+    #   dat2 <- covid_eu_cumulative %>%
+    #     select(country, date, cumulative_cases_rate) %>%
+    #     rename(count = cumulative_cases_rate) 
+    # }
+    # 
+    # if (input$indicator_select=="Deaths") {
+    #   dat2 <- covid_eu_cumulative %>%
+    #     select(country, date, cumulative_deaths) %>%
+    #     rename(count = cumulative_deaths) 
+    # }
+    # 
+    # if (input$indicator_select=="Deaths per 10,000 people") {
+    #   dat2 <- covid_eu_cumulative %>%
+    #     select(country, date, cumulative_deaths_rate) %>%
+    #     rename(count = cumulative_deaths_rate) 
+    # }
     
     # there is some negative value in daily cases and deaths as methodology changed, 
     # for example in Luxembourg in 2020/08/28

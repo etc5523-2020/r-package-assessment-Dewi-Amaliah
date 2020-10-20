@@ -7,7 +7,7 @@ globalVariables("daily_deaths_rate")
 #' A Function to Simplify the Daily Cases Visualization Code
 #' 
 #' This function aims to simplify the code in `c19euxplorer` shiny app by selecting the daily data
-#' and indicator to visualize in Cases and Deaths Tab. 
+#' and indicator to be visualized in Cases and Deaths Tab. 
 #' This function would be used in the app.R file. 
 #' 
 #' @param df A daily COVID-19 tibble.
@@ -17,7 +17,7 @@ globalVariables("daily_deaths_rate")
 #' 
 #' @examples 
 #' \dontrun{
-#'    select_variable(covid_eu_daily, input$indicator_select)
+#'    daily_indicator(covid_eu_daily, input$indicator_select)
 #' }
 #' 
 #' @export
