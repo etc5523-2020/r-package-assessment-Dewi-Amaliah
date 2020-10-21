@@ -4,20 +4,36 @@
 \alias{daily_indicator}
 \title{A Function to Simplify the Daily Cases Visualization Code}
 \usage{
-daily_indicator(df, indicator)
+daily_indicator(
+  df,
+  indicator = c("Cases", "Cases per 10,000 people", "Deaths",
+    "Deaths per 10,000 people")
+)
 }
 \arguments{
 \item{df}{A daily COVID-19 tibble.}
 
-\item{indicator}{A shiny's input_id of indicator to be visualized.}
+\item{indicator}{A shiny's input_id of indicator to be visualized}
 }
 \value{
 A data frame containing the country, date, and the indicator.
 }
 \description{
-This function aims to simplify the code in \code{c19euxplorer} shiny app by selecting the daily data
-and indicator to be visualized in Cases and Deaths Tab.
+This function aims to simplify the code in \code{c19euxplorer} shiny app by selecting
+country, date, and the indicator in daily data to be visualized in Cases and Deaths Tab.
 This function would be used in the app.R file.
+}
+\details{
+You can also use this function outside the app.
+However make sure to have these variables in your data frame in order to make the function works.
+\itemize{
+\item \strong{daily_cases}
+\item \strong{daily_deaths}
+\item \strong{daily_cases_rate}
+\item \strong{daily_deaths_rate}
+\item \strong{country}
+\item \strong{date}
+}
 }
 \examples{
 \dontrun{

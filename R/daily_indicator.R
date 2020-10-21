@@ -6,12 +6,21 @@ globalVariables("daily_deaths_rate")
 
 #' A Function to Simplify the Daily Cases Visualization Code
 #' 
-#' This function aims to simplify the code in `c19euxplorer` shiny app by selecting the daily data
-#' and indicator to be visualized in Cases and Deaths Tab. 
+#' This function aims to simplify the code in `c19euxplorer` shiny app by selecting 
+#' country, date, and the indicator in daily data to be visualized in Cases and Deaths Tab. 
 #' This function would be used in the app.R file. 
 #' 
+#' You can also use this function outside the app. 
+#' However make sure to have these variables in your data frame in order to make the function works.
+#' - **daily_cases**
+#' - **daily_deaths**
+#' - **daily_cases_rate**
+#' - **daily_deaths_rate**
+#' - **country**
+#' - **date**
+#' 
 #' @param df A daily COVID-19 tibble.
-#' @param indicator A shiny's input_id of indicator to be visualized. 
+#' @param indicator A shiny's input_id of indicator to be visualized
 #' 
 #' @return A data frame containing the country, date, and the indicator.
 #' 
@@ -21,7 +30,8 @@ globalVariables("daily_deaths_rate")
 #' }
 #' 
 #' @export
-daily_indicator <- function(df, indicator){
+daily_indicator <- function(df, indicator = c("Cases", "Cases per 10,000 people",
+                                              "Deaths", "Deaths per 10,000 people")){
   
   if (indicator == "Cases") {
     dat <- df %>%
