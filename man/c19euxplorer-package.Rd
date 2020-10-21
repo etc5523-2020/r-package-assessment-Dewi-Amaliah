@@ -8,6 +8,14 @@
 \description{
 This package features a Shiny app to explore the data of COVID-19 related variables in several countries in Europe. The variables covered are daily and cumulative cases and deaths, weekly testing and positivity rate, weekly dominant source of transmission, and daily community mobility during the pandemic.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/etc5523-2020/r-package-assessment-Dewi-Amaliah}
+  \item Report bugs at \url{https://github.com/etc5523-2020/r-package-assessment-Dewi-Amaliah/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Dewi Lestari Amaliah \email{dama0007@student.monash.edu} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
 
