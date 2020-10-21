@@ -21,7 +21,6 @@ Imports:
     shiny,
     dplyr,
     magrittr,
-    glue,
     rlang
 Suggests: 
     DT,
@@ -33,6 +32,7 @@ Suggests:
     maps,
     mapproj,
     viridis,
-    viridisLite
+    viridisLite,
+    testthat
 Remotes:
     joachim-gassen/tidycovid19

@@ -12,7 +12,7 @@
 #' 
 #' @export
 getref <- function(author, year, url, title){
-  shiny::tags$li(class = "li-custom", glue::glue("{author}. ({year})."),
+  shiny::tags$li(class = "li-custom", paste0(author,". (", year, ")."),
           shiny::tags$a(href = url,
                  title,
                  class = "externallink"
