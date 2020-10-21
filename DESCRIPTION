@@ -18,4 +18,5 @@ Depends:
 Imports: 
     shiny,
     dplyr,
-    magrittr
+    magrittr,
+    glue
