@@ -22,6 +22,17 @@
 #' @export 
 
 launch_app <- function(){
+  require_package("DT")
+  require_package("lubridate")
+  require_package("readr")
+  require_package("stringr")
+  require_package("shinythemes")
+  require_package("shinyWidgets")
+  require_package("maps")
+  require_package("mapproj")
+  require_package("viridis")
+  require_package("viridisLite")
+  require_package("tidycovid19")
   appDir <- system.file("app", package = "c19euxplorer")
   shiny::runApp(appDir, display.mode = "normal")
 }
