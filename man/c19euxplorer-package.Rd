@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Dewi Lestari Amaliah \email{dama0007@student.monash.edu} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Dewi Lestari Amaliah \email{dama0007@student.monash.edu} (\href{https://orcid.org/0000-0001-6903-6237}{ORCID})
 
 }
 \keyword{internal}

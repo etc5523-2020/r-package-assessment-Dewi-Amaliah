@@ -6,7 +6,7 @@ Authors@R:
            family = "Amaliah",
            role = c("aut", "cre"),
            email = "dama0007@student.monash.edu",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           comment = c(ORCID = "0000-0001-6903-6237"))
 Description: This package features a Shiny app to explore the data of COVID-19 related variables in several countries in Europe. The variables covered are daily and cumulative cases and deaths, weekly testing and positivity rate, weekly dominant source of transmission, and daily community mobility during the pandemic. 
 License: GPL-3
 Encoding: UTF-8
@@ -22,3 +22,14 @@ Imports:
     dplyr,
     magrittr,
     glue
+Suggests: 
+    DT,
+    lubridate,
+    readr,
+    stringr,
+    shinythemes,
+    shinyWidgets,
+    maps,
+    mapproj,
+    viridis,
+    viridisLite
