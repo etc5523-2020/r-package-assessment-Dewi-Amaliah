@@ -38,7 +38,7 @@ launch_app()
 
 The launched app would appear as follow:
 
-```{r, echo = FALSE, out.width="50%"}
+```{r, echo = FALSE, out.width="100%"}
 knitr::include_graphics("https://datain360.com/posts/2020-10-14-shinyselfreview/shiny_gif/my_shiny.gif")
 ```
 
@@ -136,7 +136,7 @@ ggplot() +
 
 **daily_indicator()**
 
-This function aims to simplify the code in `c19euxplorer` shiny app by selecting country, date, and indicators in cumulative data to be visualized in Cases and Deaths tab. This function would be used in the app, although you can also use this function outside the app. However, make sure to have these variables (with the exact same name) in your data frame in order to make the function works.
+This function aims to simplify the code in `c19euxplorer` shiny app by selecting country, date, and indicators in daily data to be visualized in Cases and Deaths tab. This function would be used in the app, although you can also use this function outside the app. However, make sure to have these variables (with the exact same name) in your data frame in order to make the function works.
 
 - daily_cases
 - daily_deaths
