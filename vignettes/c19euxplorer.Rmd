@@ -82,10 +82,9 @@ library(ggplot2)
 library(maps)
 library(viridis)
 library(viridisLite)
-library(tidycovid19)
 
 # data to be mapped
-plot <- download_merged_data(cached = TRUE, silent = TRUE)
+plot <- testing_weekly_eu
 
 # country centroid
 centro <- country_centroids %>%
@@ -93,7 +92,7 @@ centro <- country_centroids %>%
 
 # join the those two data sets
 pop_map <- left_join(plot, centro, by = "country") %>%
-  filter(date == "2020-07-28")
+  filter(year_week == "2020-W20")
 
 # load world map
 world_map <- map_data("world")
@@ -135,26 +134,24 @@ ggplot() +
 <br>
 <br>
 
-**cumulative_indicator()**
+**daily_indicator()**
 
 This function aims to simplify the code in `c19euxplorer` shiny app by selecting country, date, and indicators in cumulative data to be visualized in Cases and Deaths tab. This function would be used in the app, although you can also use this function outside the app. However, make sure to have these variables (with the exact same name) in your data frame in order to make the function works.
 
-- cumulative_cases
-- cumulative_deaths
-- cumulative_cases_rate
-- cumulative_deaths_rate
+- daily_cases
+- daily_deaths
+- daily_cases_rate
+- daily_deaths_rate
 - country
 - date
 
 ```{r}
-plot_cumulative <- plot %>%
-  rename(cumulative_cases = ecdc_cases,
-         cumulative_deaths = ecdc_deaths) %>%
-  mutate(cumulative_cases_rate = cumulative_cases/population*10000,
-         cumulative_deaths_rate = cumulative_deaths/population*10000)
+plot_daily <- plot %>%
+  rename(daily_cases = new_cases,
+         date = year_week) 
 
-plot_cumulative_new <- cumulative_indicator(plot_cumulative, "Cases per 10,000 people")
-tibble(plot_cumulative_new)
+plot_daily_new <- daily_indicator(plot_daily, "Cases")
+tibble(plot_daily_new)
 ```
 
 
@@ -165,11 +162,12 @@ tibble(plot_cumulative_new)
 Here, I would give you an example of the usage of `getplot()` function. We could use `plot_cumulative` to make a plot. However, since there are a lot of countries, we would like to choose only several countries. 
 
 ```{r}
-for_plot <- plot_cumulative_new %>%
-  filter(country %in% c("Indonesia", "China", "Spain", 
-                        "Australia", "New Zealand", 
-                        "United Kingdom"))
-
+library(lubridate)
+for_plot <- plot_daily_new %>%
+  mutate(week_only = as.numeric(sub(".*W", "", date))) %>%
+  filter(country %in% c("Austria", "Spain", "United Kingdom")) %>% 
+  mutate(date = as.Date(paste(2020, week_only, 1, sep="-"), "%Y-%U-%u"))
+  
 getplot(for_plot)
 ```
 
