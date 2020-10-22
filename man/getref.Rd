@@ -9,14 +9,14 @@ getref(author, year, url, title)
 \arguments{
 \item{author}{The author/authors in string.}
 
-\item{year}{The year of publication in string.}
+\item{year}{The year of publication.}
 
-\item{url}{The url of publication in string.}
+\item{url}{The valid url of publication in string.}
 
 \item{title}{The title of publication in string.}
 }
 \description{
-This function aims to create reference in an list format in the Shiny web app through a html tag.
+This function aims to create a reference in a list format in the Shiny web app through an HTML tag.
 }
 \examples{
 getref("Amaliah, D", "2010", "https://datain360.com", "Testing")

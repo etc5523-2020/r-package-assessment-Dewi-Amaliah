@@ -994,7 +994,7 @@ ui <- bootstrapPage(
                                         br(),
                                         getref("David Druvolo",
                                                "2019",
-                                               "hhttps://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/",
+                                               "https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/",
                                                "Custom home pages in shiny"),
                                         getref("European Centre for Disease Control and Prevention",
                                                "2020",

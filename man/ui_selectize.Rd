@@ -12,7 +12,7 @@ ui_selectize(id, choices)
 \item{choices}{List of value to select.}
 }
 \description{
-This function aim to simplify the repetitive call of shiny's selectizeInput function.
+This function aims to simplify the repetitive call of shiny's selectizeInput function.
 It will be called in app.R file.
 }
 \examples{

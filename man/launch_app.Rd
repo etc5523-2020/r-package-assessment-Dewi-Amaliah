@@ -12,7 +12,7 @@ The cumulative figures and GCMR are downloaded with the \href{https://github.com
 launch_app()
 }
 \description{
-A shiny based web app that allows the user to explore the data of COVID-19 related variables in Europe.
+This function launch a shiny based web app that allows the user to explore the data of COVID-19 related variables in Europe.
 The users are allowed to customize their country of choices and the time range they want to display within the app.
 }
 \details{

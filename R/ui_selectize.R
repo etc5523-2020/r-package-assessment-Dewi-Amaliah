@@ -1,6 +1,6 @@
 #' Refactor User Interface `selectizeInput` Function
 #' 
-#' This function aim to simplify the repetitive call of shiny's selectizeInput function. 
+#' This function aims to simplify the repetitive call of shiny's selectizeInput function. 
 #' It will be called in app.R file.
 #' 
 #' @param id Input id that will be used in the server side.

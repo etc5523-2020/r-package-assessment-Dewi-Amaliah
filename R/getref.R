@@ -1,10 +1,10 @@
 #' Create A Reference List in Shiny App
 #' 
-#' This function aims to create reference in an list format in the Shiny web app through a html tag. 
+#' This function aims to create a reference in a list format in the Shiny web app through an HTML tag. 
 #' 
 #' @param author The author/authors in string.
-#' @param year The year of publication in string.
-#' @param url The url of publication in string.
+#' @param year The year of publication.
+#' @param url The valid url of publication in string.
 #' @param title The title of publication in string. 
 #' 
 #' @examples
