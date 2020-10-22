@@ -28,12 +28,12 @@ You can also use this function outside the app.
 However, make sure to have these variables (with the exact same name)
 in your data frame in order to make the function works.
 \itemize{
-\item \strong{cumulative_cases}
-\item \strong{cumulative_deaths}
-\item \strong{cumulative_cases_rate}
-\item \strong{cumulative_deaths_rate}
-\item \strong{country}
-\item \strong{date}
+\item cumulative_cases
+\item cumulative_deaths
+\item cumulative_cases_rate
+\item cumulative_deaths_rate
+\item country
+\item date
 }
 }
 \examples{

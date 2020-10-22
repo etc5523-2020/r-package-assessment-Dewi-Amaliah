@@ -14,12 +14,12 @@ globalVariables("cumulative_deaths_rate")
 #' However, make sure to have these variables (with the exact same name) 
 #' in your data frame in order to make the function works.
 #' 
-#' - **cumulative_cases**
-#' - **cumulative_deaths**
-#' - **cumulative_cases_rate**
-#' - **cumulative_deaths_rate**
-#' - **country**
-#' - **date**
+#' - cumulative_cases
+#' - cumulative_deaths
+#' - cumulative_cases_rate
+#' - cumulative_deaths_rate
+#' - country
+#' - date
 #' 
 #' @param df A cumulative COVID-19 tibble.
 #' @param indicator A shiny's input_id of indicator to be visualized.
