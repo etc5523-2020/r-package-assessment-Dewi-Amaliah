@@ -6,9 +6,20 @@ globalVariables("cumulative_deaths_rate")
 
 #' A Function to Simplify the Cumulative Cases Visualization Code
 #' 
-#' This function aims to simplify the code in `c19euxplorer` shiny app by selecting the cumulative data
-#' and indicator to visualized in Cases and Deaths Tab. 
+#' This function aims to simplify the code in `c19euxplorer` shiny app by selecting 
+#' country, date, and indicators in cumulative data to visualized in Cases and Deaths Tab. 
 #' This function would be used in the app.R file. 
+#' 
+#' You can also use this function outside the app. 
+#' However, make sure to have these variables (with the exact same name) 
+#' in your data frame in order to make the function works.
+#' 
+#' - **cumulative_cases**
+#' - **cumulative_deaths**
+#' - **cumulative_cases_rate**
+#' - **cumulative_deaths_rate**
+#' - **country**
+#' - **date**
 #' 
 #' @param df A cumulative COVID-19 tibble.
 #' @param indicator A shiny's input_id of indicator to be visualized.
@@ -21,7 +32,8 @@ globalVariables("cumulative_deaths_rate")
 #' }
 #' 
 #' @export
-cumulative_indicator <- function(df, indicator){
+cumulative_indicator <- function(df, indicator = c("Cases", "Cases per 10,000 people",
+                                                 "Deaths", "Deaths per 10,000 people")){
   if (indicator == "Cases") {
     dat <- df %>%
       dplyr::select(country, date, cumulative_cases) %>%

@@ -11,13 +11,14 @@ globalVariables("daily_deaths_rate")
 #' This function would be used in the app.R file. 
 #' 
 #' You can also use this function outside the app. 
-#' However make sure to have these variables in your data frame in order to make the function works.
-#' - **daily_cases**
-#' - **daily_deaths**
-#' - **daily_cases_rate**
-#' - **daily_deaths_rate**
-#' - **country**
-#' - **date**
+#' However, make sure to have these variables (with the exact same name) 
+#' in your data frame in order to make the function works.
+#' - daily_cases
+#' - daily_deaths
+#' - daily_cases_rate
+#' - daily_deaths_rate
+#' - country
+#' - date
 #' 
 #' @param df A daily COVID-19 tibble.
 #' @param indicator A shiny's input_id of indicator to be visualized

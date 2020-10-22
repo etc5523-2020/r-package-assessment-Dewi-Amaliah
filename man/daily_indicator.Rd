@@ -25,14 +25,15 @@ This function would be used in the app.R file.
 }
 \details{
 You can also use this function outside the app.
-However make sure to have these variables in your data frame in order to make the function works.
+However, make sure to have these variables (with the exact same name)
+in your data frame in order to make the function works.
 \itemize{
-\item \strong{daily_cases}
-\item \strong{daily_deaths}
-\item \strong{daily_cases_rate}
-\item \strong{daily_deaths_rate}
-\item \strong{country}
-\item \strong{date}
+\item daily_cases
+\item daily_deaths
+\item daily_cases_rate
+\item daily_deaths_rate
+\item country
+\item date
 }
 }
 \examples{

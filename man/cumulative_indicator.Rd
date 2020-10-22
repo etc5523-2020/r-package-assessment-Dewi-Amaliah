@@ -4,7 +4,11 @@
 \alias{cumulative_indicator}
 \title{A Function to Simplify the Cumulative Cases Visualization Code}
 \usage{
-cumulative_indicator(df, indicator)
+cumulative_indicator(
+  df,
+  indicator = c("Cases", "Cases per 10,000 people", "Deaths",
+    "Deaths per 10,000 people")
+)
 }
 \arguments{
 \item{df}{A cumulative COVID-19 tibble.}
@@ -15,9 +19,22 @@ cumulative_indicator(df, indicator)
 A data frame containing the country, date, and the indicator.
 }
 \description{
-This function aims to simplify the code in \code{c19euxplorer} shiny app by selecting the cumulative data
-and indicator to visualized in Cases and Deaths Tab.
+This function aims to simplify the code in \code{c19euxplorer} shiny app by selecting
+country, date, and indicators in cumulative data to visualized in Cases and Deaths Tab.
 This function would be used in the app.R file.
+}
+\details{
+You can also use this function outside the app.
+However, make sure to have these variables (with the exact same name)
+in your data frame in order to make the function works.
+\itemize{
+\item \strong{cumulative_cases}
+\item \strong{cumulative_deaths}
+\item \strong{cumulative_cases_rate}
+\item \strong{cumulative_deaths_rate}
+\item \strong{country}
+\item \strong{date}
+}
 }
 \examples{
 \dontrun{
