@@ -1,5 +1,9 @@
 
-# Your Package Name
+# c19euxplorer
+
+<img src='man/figures/logo.png' align="right" height="138" />
+========================================================
+
 <!-- badges: start -->
 [![R build status](https://github.com/etc5523-2020/r-package-assessment-Dewi-Amaliah/workflows/R-CMD-check/badge.svg)](https://github.com/etc5523-2020/r-package-assessment-Dewi-Amaliah/actions)
 <!-- badges: end -->

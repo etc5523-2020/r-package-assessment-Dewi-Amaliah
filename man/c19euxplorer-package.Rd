@@ -6,6 +6,8 @@
 \alias{c19euxplorer-package}
 \title{c19euxplorer: An Interactive Data Explorer App of COVID-19 in Europe}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 This package features a Shiny app to explore the data of COVID-19 related variables in several countries in Europe. The variables covered are daily and cumulative cases and deaths, weekly testing and positivity rate, weekly dominant source of transmission, and daily community mobility during the pandemic.
 }
 \seealso{
