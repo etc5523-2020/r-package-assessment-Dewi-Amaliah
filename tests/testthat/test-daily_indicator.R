@@ -15,6 +15,15 @@ daily_deaths <- daily_indicator(covid_daily, indicator = "Deaths")
 daily_deaths_rate <- daily_indicator(covid_daily, indicator = "Deaths per 10,000 people")
 daily_cases_rate <- daily_indicator(covid_daily, indicator = "Cases per 10,000 people")
 
+
+test_that("daily_indicator returns a data frame", {
+  expect_s3_class(daily_cases, "data.frame")
+  expect_s3_class(daily_deaths, "data.frame")
+  expect_s3_class(daily_cases_rate, "data.frame")
+  expect_s3_class(daily_deaths_rate, "data.frame")
+})
+
+
 test_that("daily_indicator returns correct variables", {
   expect_equal(names(daily_cases),
                c("country", "date", "count"))
