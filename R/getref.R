@@ -4,7 +4,7 @@
 #' 
 #' @param author The author/authors in string.
 #' @param year The year of publication.
-#' @param url The valid url of publication in string.
+#' @param url The valid URL of publication in string.
 #' @param title The title of publication in string. 
 #' 
 #' @examples

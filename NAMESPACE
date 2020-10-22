@@ -3,6 +3,7 @@
 export("%>%")
 export(cumulative_indicator)
 export(daily_indicator)
+export(getlink)
 export(getref)
 export(launch_app)
 export(ui_selectize)

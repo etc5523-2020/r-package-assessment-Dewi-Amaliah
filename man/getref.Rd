@@ -11,7 +11,7 @@ getref(author, year, url, title)
 
 \item{year}{The year of publication.}
 
-\item{url}{The valid url of publication in string.}
+\item{url}{The valid URL of publication in string.}
 
 \item{title}{The title of publication in string.}
 }
