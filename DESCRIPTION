@@ -21,7 +21,9 @@ Imports:
     shiny,
     dplyr,
     magrittr,
-    rlang
+    rlang,
+    ggplot2,
+    plotly
 Suggests: 
     DT,
     lubridate,

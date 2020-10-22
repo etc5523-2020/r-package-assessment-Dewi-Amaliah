@@ -1121,31 +1121,6 @@ server <- function(input, output, session) {
   filtered_daily <- reactive({
     dat <- c19euxplorer::daily_indicator(covid_eu_daily, input$indicator_select)
     
-    # if (input$indicator_select=="Cases") {
-    #   
-    #   dat <- covid_eu_daily %>%
-    #     select(country, date, daily_cases) %>%
-    #     rename(count = daily_cases) 
-    # }
-    # 
-    # if (input$indicator_select=="Cases per 10,000 people") {
-    #   dat <- covid_eu_daily %>%
-    #     select(country, date, daily_cases_rate) %>%
-    #     rename(count = daily_cases_rate) 
-    # }
-    # 
-    # if (input$indicator_select=="Deaths") {
-    #   dat <- covid_eu_daily %>%
-    #     select(country, date, daily_deaths) %>%
-    #     rename(count = daily_deaths) 
-    # }
-    # 
-    # if (input$indicator_select=="Deaths per 10,000 people") {
-    #   dat <- covid_eu_daily %>%
-    #     select(country, date, daily_deaths_rate) %>%
-    #     rename(count = daily_deaths_rate) 
-    # }
-    
     # there is some negative value in daily cases and deaths as methodology changed, 
     # for example in Luxembourg in 2020/08/28
     # refer to Our World in Data website, I filtered out these dates, where the cases or deaths are negative
@@ -1161,33 +1136,6 @@ server <- function(input, output, session) {
   filtered_cumulative <- reactive({
     
     dat2 <- c19euxplorer::cumulative_indicator(covid_eu_cumulative, input$indicator_select)
-    # if (input$indicator_select=="Cases") {
-    #   dat2 <- covid_eu_cumulative %>%
-    #     select(country, date, cumulative_cases) %>%
-    #     rename(count = cumulative_cases) 
-    # }
-    # 
-    # if (input$indicator_select=="Cases per 10,000 people") {
-    #   dat2 <- covid_eu_cumulative %>%
-    #     select(country, date, cumulative_cases_rate) %>%
-    #     rename(count = cumulative_cases_rate) 
-    # }
-    # 
-    # if (input$indicator_select=="Deaths") {
-    #   dat2 <- covid_eu_cumulative %>%
-    #     select(country, date, cumulative_deaths) %>%
-    #     rename(count = cumulative_deaths) 
-    # }
-    # 
-    # if (input$indicator_select=="Deaths per 10,000 people") {
-    #   dat2 <- covid_eu_cumulative %>%
-    #     select(country, date, cumulative_deaths_rate) %>%
-    #     rename(count = cumulative_deaths_rate) 
-    # }
-    
-    # there is some negative value in daily cases and deaths as methodology changed, 
-    # for example in Luxembourg in 2020/08/28
-    # refer to Our World in Data website, I filtered out these dates, where the cases or deaths are negative
     
     dat2 %>% filter(date >= input$date_input[1],
                    date <= input$date_input[2],
@@ -1198,19 +1146,11 @@ server <- function(input, output, session) {
   
   
   output$covid_daily_plot <- renderPlotly({
-    g1 <- ggplot(filtered_daily(), aes(date, count, colour = country)) +
-      geom_line(size = 0.3) + labs(x = "Date", y = "Count",
-                                   caption = "Data source: European Centre for Disease Prevention and Control") +
-      theme_classic() 
-    ggplotly(g1) 
+    getplot(filtered_daily())
   })
   
   output$covid_cumulative_plot <- renderPlotly({
-    g2 <- ggplot(filtered_cumulative(), aes(date, count, colour = country)) +
-      geom_line(size = 0.3) + labs(x = "Date", y = "Count",
-                                   caption = "Data source: European Centre for Disease Prevention and Control")+
-      theme_classic() 
-    ggplotly(g2)
+    getplot(filtered_cumulative())
   })
   
   output$plot_title <- renderText({ 
