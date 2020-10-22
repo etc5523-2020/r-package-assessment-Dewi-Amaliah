@@ -76,35 +76,99 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-
-<div id="c19euxplorer" class="section level1">
+<div id="c19euxplorer-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#c19euxplorer" class="anchor"></a>c19euxplorer</h1></div>
-</div>
-<div id="section" class="section level1">
-<h1 class="hasAnchor">
-<a href="#section" class="anchor"></a><img src="reference/figures/logo.png" align="right" height="138">
-</h1>
+<a href="#c19euxplorer-" class="anchor"></a>c19euxplorer <img src="reference/figures/logo.png" align="right" height="138">
+</h1></div>
 <!-- badges: start -->
 
-<p>The goal of <em>your package name</em> is to …</p>
+<p><br></p>
+<p>The goal of <strong>c19euxplorer</strong> is to explore the COVID-19 related variables <br> in several countries in Europe interactively via a Shiny-based web app. <br></p>
+<p>The variables covered in this app are:</p>
+<ul>
+<li>Daily and cumulative cases and deaths of COVID-19 in 51 countries in Europe.</li>
+<li>Weekly testing and positivity rate of 29 EU/EEA member countries and the United Kingdom.</li>
+<li>Weekly dominant source of transmission of 31 EU/EEA member countries and the United Kingdom.</li>
+<li>Community mobility in six types of location of 29 EU/EEA member countries and the United Kingdom.</li>
+</ul>
+<p>The app’s sources of data are the <a href="https://www.ecdc.europa.eu/en">European Centre of Disease Prevention and Control</a> and the <a href="https://www.google.com/covid19/mobility/">Google Community Mobility Report</a>. The cumulative figures and GCMR are downloaded with the <a href="https://github.com/joachim-gassen/tidycovid19">tidycovid19</a> R package.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the <em>your package name</em> with:</p>
+<p>You can install the <code>c19euxplorer</code> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
-</pre></div>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"etc5523-2020/r-package-assessment-Dewi-Amaliah"</span><span class="op">)</span></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<div id="launch_app" class="section level3">
+<h3 class="hasAnchor">
+<a href="#launch_app" class="anchor"></a>launch_app()</h3>
+<p>The main usage of this package is to launch an app to explore data of COVID-19 related variables. You can launch and use the app by run this code in R studio.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">yourpkg</span><span class="op">)</span>
-<span class="co">## basic example code</span></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/etc5523-2020/r-package-assessment-Dewi-Amaliah">c19euxplorer</a></span><span class="op">)</span>
+<span class="fu"><a href="reference/launch_app.html">launch_app</a></span><span class="op">(</span><span class="op">)</span></pre></div>
+<p>By running this function, you will have the app launched as follows:</p>
+<p><img src="https://datain360.com/posts/2020-10-14-shinyselfreview/shiny_gif/prev_image.png"></p>
+<p><br></p>
+<p>You can explore each of the variables I mentioned previously by clicking each tab in the navigation bar. Inside each tab, there will be instructions on how to use the app. In general, you can compare several countries in your chosen time range.</p>
+<p>Beside <code><a href="reference/launch_app.html">launch_app()</a></code>, this package also has other functions. You can refer to <a href="https://etc5523-2020.github.io/r-package-assessment-Dewi-Amaliah/reference/index.html">this</a> and <a href="https://etc5523-2020.github.io/r-package-assessment-Dewi-Amaliah/articles/c19euxplorer.html">this</a>. These functions are mainly intended to simplify the code in the app, hence the usage would be very specific to the app. However, there are two functions that I think could be utilized when you build a Shiny app. They are <code><a href="reference/getref.html">getref()</a></code> and <code><a href="reference/getlink.html">getlink()</a></code>.</p>
+<p><br></p>
+</div>
+<div id="getref" class="section level3">
+<h3 class="hasAnchor">
+<a href="#getref" class="anchor"></a>getref()</h3>
+<p>With this function, you can make a reference list in a Shiny app in simpler way. By using HTML tag, you have to write this code for each reference you use in the app.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span>class <span class="op">=</span> <span class="st">"li-custom"</span>, <span class="st">"Winston Chang. (2018)."</span>,
+        <span class="va">tags</span><span class="op">$</span><span class="fu">a</span><span class="op">(</span>href <span class="op">=</span> <span class="st">"https://CRAN.R-project.org/package=shinythemes"</span>,
+              <span class="st">"shinythemes: Themes for Shiny"</span>,
+              class <span class="op">=</span> <span class="st">"externallink"</span><span class="op">)</span><span class="op">)</span></pre></div>
+<p>To produce this line:</p>
+<ul>
+<li>Winston Chang. (2018). <a href="https://CRAN.R-project.org/package=shinythemes">shinythemes: Themes for Shiny</a>
+</li>
+</ul>
+<p>With <code><a href="reference/getref.html">getref()</a></code>, you just have to use this line:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu">c19euxplorer</span><span class="fu">::</span><span class="fu"><a href="reference/getref.html">getref</a></span><span class="op">(</span><span class="st">"Winston Chang"</span>,
+       <span class="st">"2018"</span>,
+       <span class="st">"https://CRAN.R-project.org/package=shinythemes"</span>,
+       <span class="st">"shinythemes: Themes for Shiny"</span><span class="op">)</span></pre></div>
+<p><br></p>
+</div>
+<div id="getlink" class="section level3">
+<h3 class="hasAnchor">
+<a href="#getlink" class="anchor"></a>getlink()</h3>
+<p>Similarly, you can also use <code><a href="reference/getlink.html">getlink()</a></code> to create a hyperlink text. This function also incorporated HTML tag to create the hyperlink.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="fu"><a href="reference/getlink.html">getlink</a></span><span class="op">(</span><span class="st">"https://www.monash.edu/study/courses/find-a-course/2021/business-analytics-b6022?gclid=EAIaIQobChMI5bKC_Y-g7AIVzn8rCh3aQABbEAAYASAAEgK09PD_BwE&amp;international=true#overview-1"</span>,
+        <span class="st">"Master of Business Analytics"</span><span class="op">)</span></pre></div>
+<p>This function will produce <a href="https://www.monash.edu/study/courses/find-a-course/2021/business-analytics-b6022?gclid=EAIaIQobChMI5bKC_Y-g7AIVzn8rCh3aQABbEAAYASAAEgK09PD_BwE&amp;international=true#overview-1">Master of Business Analytics</a>.</p>
+<p><br></p>
+</div>
+<div id="data-container" class="section level3">
+<h3 class="hasAnchor">
+<a href="#data-container" class="anchor"></a>Data container</h3>
+<p>This package contains three data sets that could also be used outside the app. They are:</p>
+<p><strong>COVID-19 weekly testing and positivity rate</strong></p>
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span>
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="fu">c19euxplorer</span><span class="fu">::</span><span class="va"><a href="reference/testing_weekly_eu.html">testing_weekly_eu</a></span><span class="op">)</span></pre></div>
+<p><br></p>
+<p><strong>COVID-19 weekly dominant source of transmission in subnational level</strong></p>
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="fu">c19euxplorer</span><span class="fu">::</span><span class="va"><a href="reference/transmission_subnational_level.html">transmission_subnational_level</a></span><span class="op">)</span></pre></div>
+<p><br></p>
+<p><strong>Country centroids</strong></p>
+<div class="sourceCode" id="cb8"><pre class="downlit">
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">country_centroids</span><span class="op">)</span></pre></div>
+<p><br><br></p>
+<p><em>The image source for the hex logo is from <a href="https://www.flaticon.com">flaticon</a></em></p>
 </div>
 </div>
-
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
