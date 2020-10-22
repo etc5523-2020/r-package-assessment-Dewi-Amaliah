@@ -20,7 +20,7 @@ A data frame containing the country, date, and the indicator.
 }
 \description{
 This function aims to simplify the code in \code{c19euxplorer} shiny app by selecting
-country, date, and indicators in cumulative data to visualized in Cases and Deaths Tab.
+country, date, and indicators in cumulative data to be visualized in Cases and Deaths Tab.
 This function would be used in the app.R file.
 }
 \details{

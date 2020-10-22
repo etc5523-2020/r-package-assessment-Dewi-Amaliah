@@ -1,0 +1,232 @@
+---
+title: "Data Explorer App of COVID-19 in Europe"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Data Explorer App of COVID-19 in Europe}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(c19euxplorer)
+```
+
+
+**`c19euxplorer`** features a Shiny app to explore the data of COVID-19 related variables in several countries in Europe. The variables covered are daily and cumulative cases and deaths, weekly testing and positivity rate, weekly dominant source of transmission, and daily community mobility during the pandemic. This package also contains several other functions to simplify the codes used in the app.
+
+The app's sources of data are the [European Centre of Disease Prevention and Control](https://www.ecdc.europa.eu/en)  and the [Google Community Mobility Report](https://www.google.com/covid19/mobility/). The cumulative figures and GCMR are downloaded with the [tidycovid19](https://github.com/joachim-gassen/tidycovid19) R package. 
+
+
+## Package Usage
+
+### Main Usage
+
+The main purpose if this app is a container of a Shiny app package to explore COVID-19 related variables in several countries in Europe. To use this feature, you can use the **launch_app** function. 
+
+```{r, eval = FALSE}
+# launch the app
+# make sure to have all of the packages in suggest installed 
+launch_app()
+```
+
+The launched app would appear as follow:
+
+```{r, echo = FALSE, out.width="50%"}
+knitr::include_graphics("https://datain360.com/posts/2020-10-14-shinyselfreview/shiny_gif/my_shiny.gif")
+```
+
+<br>
+
+This app comprises of seven tabs as follow:
+
+1. **Home**. This tab is a landing page of the app. It gives a very brief overview of the app and the urge to explore the app by clicking each tab in the navbar.
+2. **Cases and Deaths**. You can visualize the cases and deaths of COVID-19 in 51 countries in Europe in daily and cumulative-wise. You can also compare several countries with a certain range of date. 
+3. **Testing**. You can explore the COVID-19 weekly testing and positivity rates in 30 countries in Europe (EU/EEA member countries and UK). You can also compare certain countries within certain week range. If you wish to use the data only without launch the app, this package contains that data for your own purpose. 
+
+```{r}
+library(tibble)
+tibble(c19euxplorer::testing_weekly_eu)
+```
+<br>
+
+4. **Tracing**. The content of this tab is the visualization of weekly dominant source of COVID-19 transmission that aggregated from subnational level of 32 countries in Europe. In this tab, you can only visualize one certain country interactively. I also provided a bubble map to choose a country based on its rate of cases per 10,000 people. If you wish to explore the raw data, apart from the app, you can use this code below, since this package contains that data. 
+
+```{r}
+tibble(c19euxplorer::transmission_subnational_level)
+```
+<br>
+
+5. **Community Mobility**. The objective of this tab is to explore the mobility of people during the pandemic in six types of locations daily. You are able to choose a country to be displayed. You can also choose the time range. I also added an interactive table of country response measure, which shows the start date and the end date of a measure. Since community mobility is developed to observe the effect of measure to the community activity, this table is useful as a benchmark of choosing the date to track that effect.
+6. **Data**. This tab displays the raw data that are used to visualize the variables in the previous tabs. The users are allowed to choose one or more countries, even select all of the countries available. They are also allowed to choose the time range.
+7. **More**. This tab contains two sub-tabs: About and References. The About sub-tab specifies the purpose of the app and other relevant information, such as the data source used in the app and the R packages to make the app. There is also a brief information of my self. The References sub-tab conveys the reference of data sources, readings, packages, and images used in the app.
+
+### Additional Usage 
+
+**Country Centroids Data**
+
+Besides those two data sets, I also embedded a country centroids data set. Apart from COVID-19 matter, this data set is useful if you wish to make a bubble map with a point represents a whole country, such as the following map:
+
+```{r}
+tibble(c19euxplorer::country_centroids)
+```
+```{r, message=FALSE}
+library(dplyr)
+library(ggplot2)
+library(maps)
+library(viridis)
+library(viridisLite)
+library(tidycovid19)
+
+# data to be mapped
+plot <- download_merged_data(cached = TRUE, silent = TRUE)
+
+# country centroid
+centro <- country_centroids %>%
+  rename(country = name_long)
+
+# join the those two data sets
+pop_map <- left_join(plot, centro, by = "country") %>%
+  filter(date == "2020-07-28")
+
+# load world map
+world_map <- map_data("world")
+```
+
+
+```{r, message=FALSE}
+#the map
+ggplot() +
+      geom_polygon(data = world_map, 
+                   aes(x = long,
+                       y = lat,
+                       group = group),
+                   fill = "#73C6B6",
+                   colour = "white",
+                   alpha = 0.7
+      ) +
+      geom_point(data = pop_map,
+                 aes(x = Longitude,
+                     y = Latitude,
+                     colour = population,
+                     size = population,
+                     alpha = population)) +
+      scale_size_continuous(range = c(1, 6)) +
+      scale_color_viridis(option = "inferno", trans = "log") +
+      scale_alpha_continuous(trans = "log") +
+      guides(colour = guide_legend()) + 
+      xlab("") +
+      ylab("") +
+      theme(panel.grid = element_blank(),
+            axis.title = element_blank(),
+            axis.text = element_blank(),
+            axis.ticks = element_blank(),
+            plot.background = element_rect(fill = "white"),
+            panel.background = element_rect(fill = "white")) +
+  labs(title = "Population Bubble Map")
+
+```
+<br>
+<br>
+
+**cumulative_indicator()**
+
+This function aims to simplify the code in `c19euxplorer` shiny app by selecting country, date, and indicators in cumulative data to be visualized in Cases and Deaths tab. This function would be used in the app, although you can also use this function outside the app. However, make sure to have these variables (with the exact same name) in your data frame in order to make the function works.
+
+- cumulative_cases
+- cumulative_deaths
+- cumulative_cases_rate
+- cumulative_deaths_rate
+- country
+- date
+
+```{r}
+plot_cumulative <- plot %>%
+  rename(cumulative_cases = ecdc_cases,
+         cumulative_deaths = ecdc_deaths) %>%
+  mutate(cumulative_cases_rate = cumulative_cases/population*10000,
+         cumulative_deaths_rate = cumulative_deaths/population*10000)
+
+plot_cumulative_new <- cumulative_indicator(plot_cumulative, "Cases per 10,000 people")
+tibble(plot_cumulative_new)
+```
+
+
+<br>
+
+**getplot()**
+
+Here, I would give you an example of the usage of `getplot()` function. We could use `plot_cumulative` to make a plot. However, since there are a lot of countries, we would like to choose only several countries. 
+
+```{r}
+for_plot <- plot_cumulative_new %>%
+  filter(country %in% c("Indonesia", "China", "Spain", 
+                        "Australia", "New Zealand", 
+                        "United Kingdom"))
+
+getplot(for_plot)
+```
+
+<br>
+
+**getref()**
+
+Currently, I have not found a package that facilitate the creation of reference in Shiny. So, I made this function to make the reference writing come in handy. 
+
+Using the HTML tag provided by Shiny, you have to type this code to create a reference like this:
+
+```{r, eval = FALSE}
+tags$li(class = "li-custom", "Winston Chang. (2018).",
+        tags$a(href = "https://CRAN.R-project.org/package=shinythemes",
+              "shinythemes: Themes for Shiny",
+              class = "externallink"))
+
+```
+
+Winston Chang. (2018). [shinythemes: Themes for Shiny](https://CRAN.R-project.org/package=shinythemes) 
+
+<br>
+
+With `getref()`, you just have to type this:
+
+```{r, eval = FALSE}
+
+getref("Winston Chang",
+       "2018",
+       "https://CRAN.R-project.org/package=shinythemes",
+       "shinythemes: Themes for Shiny")
+```
+
+<br>
+
+**getlink()**
+
+Just like `getref()`, `getlink()` also aims to simplify the typing of link in Shiny app's UI using the HTML tag. Initially, Shiny has a markdown function to also make this task easier. However, `markdown` adds the new hyperlink text into a new line. Sometimes, we want to use some hyperlink texts in one sentences. 
+
+Using HTML tag, you have to type this code to create this hyperlink text:
+
+[Master of Business Analytics](https://www.monash.edu/study/courses/find-a-course/2021/business-analytics-b6022?gclid=EAIaIQobChMI5bKC_Y-g7AIVzn8rCh3aQABbEAAYASAAEgK09PD_BwE&international=true#overview-1)
+
+```{r, eval = FALSE}
+
+tags$a(href = "https://www.monash.edu/study/courses/find-a-course/2021/business-analytics-b6022?gclid=EAIaIQobChMI5bKC_Y-g7AIVzn8rCh3aQABbEAAYASAAEgK09PD_BwE&international=true#overview-1",
+       "Master of Business Analytics",
+       class = "externallink")
+
+```
+<br>
+
+With `getlink()`, you can just type this:
+
+```{r, eval = FALSE}
+
+getlink("https://www.monash.edu/study/courses/find-a-course/2021/business-analytics-b6022?gclid=EAIaIQobChMI5bKC_Y-g7AIVzn8rCh3aQABbEAAYASAAEgK09PD_BwE&international=true#overview-1",
+        "Master of Business Analytics")
+```
+

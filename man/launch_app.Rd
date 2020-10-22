@@ -4,7 +4,7 @@
 \alias{launch_app}
 \title{Explore COVID-19 Related Variables Interactively}
 \source{
-The app's source of data is the \href{https://www.ecdc.europa.eu/en}{European Centre of Disease Prevention and Control}
+The app's sources of data are the \href{https://www.ecdc.europa.eu/en}{European Centre of Disease Prevention and Control}
 and the \href{https://www.google.com/covid19/mobility/}{Google Community Mobility Report}.
 The cumulative figures and GCMR are downloaded with the \href{https://github.com/joachim-gassen/tidycovid19}{tidycovid19} R package.
 }

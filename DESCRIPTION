@@ -35,6 +35,10 @@ Suggests:
     mapproj,
     viridis,
     viridisLite,
-    testthat
+    testthat,
+    knitr,
+    rmarkdown,
+    tibble
 Remotes:
     joachim-gassen/tidycovid19
+VignetteBuilder: knitr

@@ -9,7 +9,7 @@
 #' - Weekly dominant source of transmission of 31 EU/EEA member countries and the United Kingdom.
 #' - Community mobility in six types of location of 29 EU/EEA member countries and the United Kingdom. 
 #' 
-#' @source The app's source of data is the [European Centre of Disease Prevention and Control](https://www.ecdc.europa.eu/en) 
+#' @source The app's sources of data are the [European Centre of Disease Prevention and Control](https://www.ecdc.europa.eu/en) 
 #' and the [Google Community Mobility Report](https://www.google.com/covid19/mobility/). 
 #' The cumulative figures and GCMR are downloaded with the [tidycovid19](https://github.com/joachim-gassen/tidycovid19) R package.
 #' 
