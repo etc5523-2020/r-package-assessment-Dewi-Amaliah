@@ -1,6 +1,6 @@
 ## code to prepare `country_centroids` dataset goes here
 
-library(tidyverse)
+library(readr)
 country_centroids <- read_csv("data-raw/country_centroids.csv") %>%
   select(name_long, 
          Longitude,

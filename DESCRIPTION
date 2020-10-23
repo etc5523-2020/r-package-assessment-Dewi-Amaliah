@@ -23,11 +23,12 @@ Imports:
     magrittr,
     rlang,
     ggplot2,
-    plotly
+    plotly,
+    readr,
+    readxl
 Suggests: 
     DT,
     lubridate,
-    readr,
     stringr,
     shinythemes,
     shinyWidgets,

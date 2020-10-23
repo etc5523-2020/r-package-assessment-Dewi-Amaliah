@@ -1,6 +1,6 @@
 ## code to prepare `transmission_subnational_level` dataset goes here
 
-library(tidyverse)
+library(readr)
 
 # Read weekly transmission data from ecdc COVID dashboard
 transmission_subnational_level <- read_csv(here::here("data-raw/subnational level of transmission-2.CSV")) %>%
