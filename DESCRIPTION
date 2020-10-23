@@ -39,7 +39,9 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
-    tibble
+    tibble,
+    wbstats
 Remotes:
     joachim-gassen/tidycovid19
+    nset-ornl/wbstats
 VignetteBuilder: knitr

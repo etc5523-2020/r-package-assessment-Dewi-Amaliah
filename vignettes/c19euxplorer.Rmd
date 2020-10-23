@@ -31,8 +31,8 @@ The app's sources of data are the [European Centre of Disease Prevention and Con
 The main purpose if this app is a container of a Shiny app package to explore COVID-19 related variables in several countries in Europe. To use this feature, you can use the **launch_app** function. 
 
 ```{r, eval = FALSE}
-# launch the app
-# make sure to have all of the packages in suggest installed 
+#> launch the app
+#> make sure to have all of the packages in suggest installed 
 launch_app()
 ```
 
@@ -83,24 +83,24 @@ library(maps)
 library(viridis)
 library(viridisLite)
 
-# data to be mapped
+#> data to be mapped
 plot <- testing_weekly_eu
 
-# country centroid
+#> country centroid
 centro <- country_centroids %>%
   rename(country = name_long)
 
-# join the those two data sets
+#> join the those two data sets
 pop_map <- left_join(plot, centro, by = "country") %>%
   filter(year_week == "2020-W20")
 
-# load world map
+#> load world map
 world_map <- map_data("world")
 ```
 
 
 ```{r, message=FALSE}
-#the map
+#>the map
 ggplot() +
       geom_polygon(data = world_map, 
                    aes(x = long,

@@ -89,7 +89,7 @@ c19euxplorer::getref("Winston Chang",
 Similarly, you can also use `getlink()` to create a hyperlink text. This function also incorporated HTML tag to create the hyperlink. 
 
 ```r
-getlink("https://www.monash.edu/study/courses/find-a-course/2021/business-analytics-b6022?gclid=EAIaIQobChMI5bKC_Y-g7AIVzn8rCh3aQABbEAAYASAAEgK09PD_BwE&international=true#overview-1",
+c19euxplorer::getlink("https://www.monash.edu/study/courses/find-a-course/2021/business-analytics-b6022?gclid=EAIaIQobChMI5bKC_Y-g7AIVzn8rCh3aQABbEAAYASAAEgK09PD_BwE&international=true#overview-1",
         "Master of Business Analytics")
 ```
 
@@ -120,7 +120,7 @@ tibble(c19euxplorer::transmission_subnational_level)
 **Country centroids**
 
 ```r
-tibble(country_centroids)
+tibble(c19euxplorer::country_centroids)
 ```
 <br>
 <br>
