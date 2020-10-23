@@ -33,6 +33,7 @@ Suggests:
     shinyWidgets,
     maps,
     mapproj,
+    tidycovid19,
     viridis,
     viridisLite,
     testthat,
